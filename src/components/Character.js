@@ -30,14 +30,20 @@ const Text = styled.p`
     padding: 5px;
     font-family: 'Noto Serif', serif;
     color: #032e1f;
+    font-size: 18px;
     `;
 
 const Date = styled(Text)`
     font-family: 'Aref Ruqaa Ink', serif;
     background: #6969;
-    border-radius: 40px;
+    border-top-right-radius: 2px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 10px;
+    letter-spacing: .2rem;
     color: pink;
-`
+    font-size:11px
+`;
 
 // const TitleStyle = styled.p`
 //     color: #669;
