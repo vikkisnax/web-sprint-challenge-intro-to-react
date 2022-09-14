@@ -4,12 +4,27 @@ import axios from 'axios';
 import { response } from 'msw'; //they did this for me i believe once I wrote get request. did i use response??
 import React, { useState, useEffect } from 'react';
 import Character from './components/Character';
+import styled from 'styled-components';
 
 //would usually go in another component that dealt with each BOX. might need to use column here...
-import { Container, Row } from "reactstrap"; 
+// import { Container, Row } from "reactstrap"; 
 
 
 //me: STYLES here -- basically for the BOXES
+const Header = styled.h1`
+  text-align: center;
+  color: #443e3e;
+  text-shadow: 1px 1px 5px #fff
+  `;
+
+const BoxContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 25px
+`
+
 
 
 const App = () => {
@@ -40,15 +55,15 @@ const App = () => {
 
   //basically the outline of the site
   return (
-    <div className="App">
-      <h1 className="Header">Characters</h1>
+    <div className="AppContainer">
+      <Header>Characters</Header>
 
-      {/* just put MAP through each character's box here. pass in characters state to give data to Characters component. would usally map through each BOX in another comp, but ig i'll combine it here in the App comp*/}
-      <div> 
-       {characters.map((character) => {
-          return <Character characters={characters} key={character.url} />;
+      {/* just put MAP through each character's box here. pass in characters state to give data to Characters component. would usally map through each BOX in another comp, but ig i'll combine it here in the App comp. -- update: after .map and before i made anymore edits to Character comp (I returned 'hello'), hello showed 6x on the page = good bc length of the obj is 6 */}
+      <BoxContainer> 
+       {characters.map((characters) => {
+          return <Character characters={characters} key={characters.url} />;
         })}
-      </div>
+      </BoxContainer>
     </div>
   );
 }

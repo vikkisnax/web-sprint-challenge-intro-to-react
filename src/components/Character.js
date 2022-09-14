@@ -4,11 +4,66 @@
 
 
 import React from "react";
+// import App from "../App"
 //import from reactstrap for styling... 
+import { Card, CardText } from "reactstrap";
+import styled from 'styled-components';
+
+
+const Box = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid green;
+    // space inbetween boxes:
+    margin: 10px; 
+    height: 40px;
+    width: 450px;
+    `;
+
+const Text = styled.p`
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    font-family: 'Noto Serif', serif;
+    color: #032e1f;
+    `;
+
+const Date = styled(Text)`
+    font-family: 'Aref Ruqaa Ink', serif;
+    background: #6969;
+    border-radius: 40px;
+    color: pink;
+`
+
+// const TitleStyle = styled.p`
+//     color: #669;
+//     font-weight:bold;
+//     `;
+
 
 export default function Character({characters}){
-    return "hello"
-
+    return(
+    <Box>
+        {/* <Col xs="6" md="4" xl="3"> */}
+        <Card
+            style={{
+                width: '40rem',
+                padding: '.01rem'
+            }}
+            >
+        {" "}
+        <Text>
+            <CardText>{characters.name}</CardText>
+            <Date>{characters.birth_year}</Date>
+        </Text>
+        </Card>
+        {/* </Col>  */}
+  </Box>
+)
 };
 
 
